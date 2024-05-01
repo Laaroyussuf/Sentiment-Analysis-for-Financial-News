@@ -32,11 +32,12 @@ st.write('Enter a news headline to predict its sentiment:')
 
 # User input
 user_input = st.text_input("News Headline", "")
-if not user_input:
-    st.write("Please, enter something.")
 
 if st.button('Predict Sentiment'):
-    preprocessed_text = preprocess_text(user_input)
-    transformed_df = transform_input(preprocessed_text, reference_words)
-    prediction = model.predict(transformed_df)
-    st.write(f'The predicted sentiment is: {prediction[0]}')
+    if not user_input:
+        st.write("Please, enter something.")
+    else:
+        preprocessed_text = preprocess_text(user_input)
+        transformed_df = transform_input(preprocessed_text, reference_words)
+        prediction = model.predict(transformed_df)
+        st.write(f'The predicted sentiment is: {prediction[0]}')
