@@ -1,15 +1,15 @@
 import streamlit as st
-import pickle
+import joblib
 import numpy as np
 import pandas as pd
 import re
 from collections import Counter
 
-with open('model.pkl', 'rb') as file:
-    model = pickle.load(file)
+with open('model.joblib', 'rb') as file:
+    model = joblib.load(file)
 
-with open('reference_words.pkl', 'rb') as file:
-    reference_words = pickle.load(file)
+with open('reference_words.joblib', 'rb') as file:
+    reference_words = joblib.load(file)
 
 def preprocess_text(news, lower_case=True):
     if lower_case:
