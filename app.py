@@ -32,6 +32,8 @@ st.write('Enter a news headline to predict its sentiment:')
 
 # User input
 user_input = st.text_input("News Headline", "")
+if not user_input:
+    st.write("Please, enter something.")
 
 if st.button('Predict Sentiment'):
     preprocessed_text = preprocess_text(user_input)
